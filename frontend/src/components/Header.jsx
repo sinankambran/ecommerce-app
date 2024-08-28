@@ -5,6 +5,7 @@ import search_icon from '../assets/icons/search_icon.png'
 import profile_icon from '../assets/icons/profile_icon.png'
 import cart_icon from '../assets/icons/cart_icon.png'
 import menu_icon from '../assets/icons/menu_icon.png'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     const [navbarToggle, setNavbarToggle] = useState(false);
@@ -12,11 +13,11 @@ const Header = () => {
     return (
         <header className={`relative flex justify-between items-center w-full py-3 px-1 sm:px-4 bg-slate-50 z-10 ${navbarToggle ? 'mb-40' : 'mb-0'} md:mb-0`}>
             <div className='flex items-center gap-2'>
-                <img
+              <Link to='/'>  <img
                     src={logo}
                     alt='logo'
                     className='h-12 cursor-pointer'
-                />
+                /></Link>
                 <h2 className='text-2xl font-bold cursor-pointer'>
                     Easy
                     <span className='text-green-500'>Shop</span>
