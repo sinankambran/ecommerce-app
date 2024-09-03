@@ -1,8 +1,12 @@
 import React from 'react'
 
-function Contact() {
+const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <div className='text-center text-2xl pt-10 border-t'>
+
+      </div>
+    </div>
   )
 }
 
