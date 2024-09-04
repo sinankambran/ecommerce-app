@@ -29,15 +29,18 @@ const Header = () => {
                     <li className='cursor-pointer px-8 md:px-0 py-2 md:py-0 hover:bg-slate-100 md:hover:bg-transparent md:hover:text-gray-500'>
                         Home
                     </li>
+                
                     <li className='cursor-pointer px-8 md:px-0 py-2 md:py-0 hover:bg-slate-100 md:hover:bg-transparent md:hover:text-gray-500'>
                         Collections
                     </li>
                     <li className='cursor-pointer px-8 md:px-0 py-2 md:py-0 hover:bg-slate-100 md:hover:bg-transparent md:hover:text-gray-500'>
                         About Us
                     </li>
+                    <Link to='/contact'>
                     <li className='cursor-pointer px-8 md:px-0 py-2 md:py-0 hover:bg-slate-100 md:hover:bg-transparent md:hover:text-gray-500'>
                         Contact Us
                     </li>
+                    </Link>
                 </ul>
             </nav>
 

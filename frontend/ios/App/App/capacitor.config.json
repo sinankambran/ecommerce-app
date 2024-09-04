@@ -1,0 +1,6 @@
+{
+	"appId": "ecommerce.app",
+	"appName": "EcommerceApp",
+	"webDir": "dist",
+	"packageClassList": []
+}
