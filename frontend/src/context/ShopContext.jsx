@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useCallback, useState } from "react";
 import { products } from "../assets/assets"; 
  export const ShopContext = createContext();
 
@@ -6,9 +6,12 @@ import { products } from "../assets/assets";
   
     const currency = '$';
     const delivery_fee = '10';
+    const [search, setSearch] = useState('');
+    const [showSearch,setShowSearch] = useState(false)
 
     const value ={
-         products,currency,delivery_fee
+         products,currency,delivery_fee,
+         search,setSearch,showSearch,setShowSearch
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import logo from "../assets/logos/shopping-bag.png";
 import search_icon from "../assets/icons/search_icon.png";
@@ -6,9 +6,11 @@ import profile_icon from "../assets/icons/profile_icon.png";
 import cart_icon from "../assets/icons/cart_icon.png";
 import menu_icon from "../assets/icons/menu_icon.png";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
   const [navbarToggle, setNavbarToggle] = useState(false);
+  const {setShowSearch} = useContext(ShopContext) 
 
   return (
     <header
@@ -18,7 +20,7 @@ const Header = () => {
     >
       <div className="flex items-center gap-2">
         <Link to="/">
-          {" "}
+          
           <img src={logo} alt="logo" className="h-12 cursor-pointer" />
         </Link>
         <h2 className="text-2xl font-bold cursor-pointer">
@@ -58,7 +60,7 @@ const Header = () => {
 
       <div className="flex items-center gap-3 md:gap-4">
         <button>
-          <img src={search_icon} alt="" className="h-8" />
+          <img onClick={()=>setShowSearch(true)} src={search_icon} alt="" className="h-8" />
         </button>
         <button>
           <img src={profile_icon} alt="" className="h-8" />
