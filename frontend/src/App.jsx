@@ -10,19 +10,19 @@ import SearchBar from "./components/SearchBar";
 
 
 const App = () => {
-  return (
-    <div className="px-4 sm:px-[ 5vw] md:px-[7vw] lg:px-[9vw]">
-      <Header />
-        <SearchBar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/collections" element={<Collection />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="px-2 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+            <Header />
+            <SearchBar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/collections" element={<Collection />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+            <Footer />
+        </div>
+    );
 };
 
 export default App;

@@ -4,7 +4,7 @@ import { ShopContext } from '../context/ShopContext'
 import ProductItem from '../components/ProductItem';
 
 function Collection() {
-    const { products } = useContext(ShopContext);
+    const { products, search, showSearch } = useContext(ShopContext);
 
     const [collections, setCollections] = useState([]);
 
@@ -14,8 +14,16 @@ function Collection() {
 
     const [sortOrder, setSortOrder] = useState('relavent');
 
+    console.log(search)
+
+    console.log(showSearch)
+
     useEffect(() => {
         let filteredProducts = products;
+
+        if (search && showSearch) {
+            filteredProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+        }
 
         if (category.length > 0) {
             filteredProducts = filteredProducts.filter(product => category.includes(product.category));
@@ -29,7 +37,7 @@ function Collection() {
 
         setCollections(filteredProducts);
 
-    }, [products, category, subCategory, sortOrder]);
+    }, [products, category, subCategory, sortOrder, search, showSearch]);
 
     const handleCategory = (value) => {
         if (!category.includes(value)) {
@@ -60,14 +68,14 @@ function Collection() {
     };
 
     return (
-        <div className='flex flex-col md:flex-row gap-8 border-t border-gray-300 pt-5'>
+        <div className='flex flex-col lg:flex-row gap-8 border-t border-gray-300 pt-5'>
             <div className='flex flex-col gap-2'>
                 <p className='text-xl font-semibold'>
                     Filters
                 </p>
 
-                <div className='pl-3 flex flex-col gap-4 items-center py-2'>
-                    <div className='flex flex-col gap-2 border-2 border-gray-300 py-3 px-3 w-full min-w-60'>
+                <div className='pl-3 flex flex-col md:flex-row lg:flex-col gap-4 items-start py-2'>
+                    <div className='flex flex-col gap-2 border-2 border-gray-300 py-3 px-3 w-full md:max-w-60 lg:min-w-60'>
                         <p className='text-lg font-medium'>
                             Categories
                         </p>
@@ -102,7 +110,7 @@ function Collection() {
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-2 border-2 border-gray-300 py-3 px-3 w-full min-w-60'>
+                    <div className='flex flex-col gap-2 border-2 border-gray-300 py-3 px-3 w-full md:max-w-60 lg:min-w-60'>
                         <p className='text-lg font-medium'>
                             Type
                         </p>
@@ -153,9 +161,9 @@ function Collection() {
                     </select>
                 </div>
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-7'>
-                    {
-                        collections.map((collection, index) => (
+                {collections.length > 0 ? (
+                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-7'>
+                        {collections.map((collection, index) => (
                             <ProductItem
                                 key={index}
                                 id={collection._id}
@@ -163,9 +171,13 @@ function Collection() {
                                 name={collection.name}
                                 price={collection.price}
                             />
-                        ))
-                    }
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-gray-600 text-xl">
+                        No products found
+                    </p>
+                )}
             </div>
         </div>
     )
