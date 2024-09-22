@@ -14,9 +14,7 @@ function Collection() {
 
     const [sortOrder, setSortOrder] = useState('relavent');
 
-    console.log(search)
-
-    console.log(showSearch)
+    const [showMore, setShowMore] = useState(false);
 
     useEffect(() => {
         let filteredProducts = products;
@@ -39,9 +37,10 @@ function Collection() {
 
     }, [products, category, subCategory, sortOrder, search, showSearch]);
 
+
     const handleCategory = (value) => {
         if (!category.includes(value)) {
-            setCategory(prev => ([...prev, value]));
+            setCategory(pi7trev => ([...prev, value]));
         } else {
             setCategory(prev => (prev.filter(c => c != value)));
         }
