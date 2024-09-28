@@ -57,7 +57,7 @@ const Header = () => {
                     <img src={search_icon} alt="Search" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" onClick={handleSearch} />
                 </button>
                 <button>
-                    <img src={profile_icon} alt="Profile" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                  <Link to='/login'>  <img src={profile_icon} alt="Profile" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" /></Link>
                 </button>
                 <Link to='/cart' className="relative">
                     <img src={cart_icon} alt="Cart" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
