@@ -44,7 +44,7 @@ function Collection() {
 
   const handleCategory = (value) => {
     if (!category.includes(value)) {
-      setCategory((pi7trev) => [...prev, value]);
+      setCategory((prev) => [...prev, value]);
     } else {
       setCategory((prev) => prev.filter((c) => c != value));
     }
